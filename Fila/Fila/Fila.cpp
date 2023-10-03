@@ -88,12 +88,31 @@ void insere()
 	cin >> novo->valor;
 	novo->prox = NULL;
 
+	if (inicio == NULL) {
+		inicio = novo;
+		fim = novo;
+		cout << "Elemento inserido" << endl;
+	}
+	else {
+		fim->prox = novo;
+		fim = novo;
+		cout << "Elemento inserido" << endl;
+	}
 
 }
 
 void remove()
 {
-
+	if (inicio == NULL) {
+		cout << "Fila vazia" << endl;
+		return;
+	}
+	else{
+		NO* aux = inicio;
+		inicio = inicio->prox;
+		cout << "O elemento " << aux->valor << " foi excluido" << endl;
+		free(aux);
+	}
 
 
 }
